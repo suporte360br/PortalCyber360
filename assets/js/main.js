@@ -10,7 +10,7 @@ menu.addEventListener('click', (e) => {
 });
 
 // Formulário de contato: monta um e-mail pronto (o site é estático, sem servidor)
-const EMAIL_DESTINO = 'contato@cybersec360.com';
+const EMAIL_DESTINO = 'contato@cybersec360.com.br';
 const form = document.getElementById('form-contato');
 if (form) {
   form.addEventListener('submit', (e) => {
