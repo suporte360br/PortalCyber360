@@ -1,13 +1,15 @@
 // Menu mobile
 const botaoMenu = document.querySelector('.menu-btn');
 const menu = document.getElementById('menu');
-botaoMenu.addEventListener('click', () => {
-  const aberto = menu.classList.toggle('aberto');
-  botaoMenu.setAttribute('aria-expanded', aberto);
-});
-menu.addEventListener('click', (e) => {
-  if (e.target.tagName === 'A') menu.classList.remove('aberto');
-});
+if (botaoMenu && menu) {
+  botaoMenu.addEventListener('click', () => {
+    const aberto = menu.classList.toggle('aberto');
+    botaoMenu.setAttribute('aria-expanded', aberto);
+  });
+  menu.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') menu.classList.remove('aberto');
+  });
+}
 
 // Formulário de contato: monta um e-mail pronto (o site é estático, sem servidor)
 const EMAIL_DESTINO = 'contato@cybersec360.com.br';
@@ -29,4 +31,5 @@ if (form) {
   });
 }
 
-document.getElementById('ano').textContent = new Date().getFullYear();
+const ano = document.getElementById('ano');
+if (ano) ano.textContent = new Date().getFullYear();
