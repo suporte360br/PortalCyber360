@@ -52,7 +52,6 @@ img { max-width: 100%; height: auto; display: block; }
 .marca span { color: var(--prata); font-family: Roboto, sans-serif; font-weight: 700; font-size: 1.15rem; letter-spacing: .08em; }
 .marca b { color: var(--azul); }
 .logo-hero { width: min(420px, 80vw); border-radius: 12px; margin-bottom: 1.5rem; box-shadow: 0 0 40px rgba(30, 144, 255, .25); }
-.logo-rodape { width: 220px; height: auto; border-radius: 8px; }
 .menu { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; }
 .menu a { color: #fff; text-decoration: none; font-family: Roboto, sans-serif; font-weight: 700; font-size: 1.05rem; }
 .menu a:hover { color: var(--ciano); }
@@ -114,11 +113,22 @@ details p { margin: .75rem 0 0; }
 .nota { font-size: .85rem; opacity: .7; margin: 0; text-align: center; }
 
 /* Rodapé */
-.rodape { background: var(--superficie); padding: 50px 0 20px; font-size: .95rem; }
-.rodape img { margin-bottom: 1rem; }
+.rodape { background: var(--superficie); border-top: 1px solid var(--borda); padding: 56px 0 20px; font-size: .95rem; }
 .rodape ul { list-style: none; padding: 0; margin: 0; }
-.rodape a { color: var(--prata); }
-.copy { text-align: center; opacity: .6; margin: 2rem 0 0; font-size: .85rem; }
+.rodape a { color: var(--prata); text-decoration: none; transition: color .2s; }
+.rodape a:hover { color: var(--ciano); }
+.rodape h3 { color: var(--ciano); font-size: .85rem; text-transform: uppercase; letter-spacing: .12em; margin: .9rem 0 1.2rem; }
+.rodape-grade { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 3rem; align-items: start; }
+.rodape-marca p { margin: 1.2rem 0 0; max-width: 40ch; line-height: 1.7; opacity: .8; }
+.rodape-marca .marca img { width: 44px; height: 44px; }
+.rodape-contato li { display: flex; align-items: center; gap: .65rem; margin-bottom: .8rem; }
+.rodape-contato svg { width: 18px; height: 18px; flex: none; fill: none; stroke: var(--ciano); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.rodape .botao-pequeno { padding: .55rem 1.2rem; font-size: .8rem; margin-top: .6rem; color: #fff; }
+.rodape .botao-pequeno:hover { color: #fff; }
+.rodape-links { display: grid; grid-template-columns: repeat(2, max-content); gap: .8rem 2.5rem; }
+.rodape-base { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem 1.5rem; margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--borda); font-size: .85rem; opacity: .7; }
+.rodape-base p { margin: 0; }
+.copy { text-align: center; opacity: .6; margin: 0; font-size: .85rem; }
 
 /* Blog */
 .post-card {
@@ -150,6 +160,12 @@ details p { margin: .75rem 0 0; }
 
 @media (max-width: 860px) {
   .grade-3, .sobre { grid-template-columns: 1fr; }
+  .rodape-grade { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .rodape-marca { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .rodape-grade { grid-template-columns: 1fr; }
+  .rodape-base { flex-direction: column; text-align: center; }
 }
 @media (max-width: 640px) {
   .menu-btn { display: block; }
