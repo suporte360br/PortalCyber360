@@ -39,7 +39,12 @@ img { max-width: 100%; height: auto; display: block; }
   background: linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)), url("../img/hero.jpg") center / cover no-repeat;
 }
 .nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
-.marca img { width: 56px; height: 56px; border-radius: 6px; }
+.marca { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
+.marca img { width: 52px; height: 52px; border-radius: 8px; }
+.marca span { color: #e6e9ee; font-family: Roboto, sans-serif; font-weight: 700; font-size: 1.15rem; letter-spacing: .08em; }
+.marca b { color: #1e90ff; }
+.logo-hero { width: min(420px, 80vw); border-radius: 12px; margin-bottom: 1.5rem; box-shadow: 0 0 40px rgba(30, 144, 255, .25); }
+.logo-rodape { width: 220px; height: auto; border-radius: 8px; }
 .menu { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; }
 .menu a { color: #fff; text-decoration: none; font-family: Roboto, sans-serif; font-weight: 700; font-size: 1.05rem; }
 .menu a:hover { color: var(--amarelo); }
@@ -101,7 +106,7 @@ details p { margin: .75rem 0 0; }
 
 /* Rodapé */
 .rodape { background: #111; padding: 50px 0 20px; font-size: .95rem; }
-.rodape img { border-radius: 6px; margin-bottom: 1rem; }
+.rodape img { margin-bottom: 1rem; }
 .rodape ul { list-style: none; padding: 0; margin: 0; }
 .rodape a { color: #ddd; }
 .copy { text-align: center; opacity: .6; margin: 2rem 0 0; font-size: .85rem; }
