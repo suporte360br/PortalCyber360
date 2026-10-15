@@ -39,8 +39,13 @@ img { max-width: 100%; height: auto; display: block; }
   min-height: 70vh;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(rgba(7,13,24,.72), rgba(7,13,24,.85)), url("../img/hero.jpg") center / cover no-repeat;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 40%, #0f2547 0%, var(--superficie) 70%);
 }
+.topo > * { position: relative; z-index: 1; }
+.topo > .nav { z-index: 2; }
+.topo > .rede { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
 .nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
 .marca { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
 .marca img { width: 52px; height: 52px; border-radius: 8px; }

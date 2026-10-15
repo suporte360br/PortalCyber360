@@ -31,5 +31,75 @@ if (form) {
   });
 }
 
+// Fundo do topo: rede de pontos conectados (desenhada no navegador, sem imagem)
+const rede = document.getElementById('rede');
+if (rede) {
+  const ctx = rede.getContext('2d');
+  const semAnimacao = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const DISTANCIA = 130;
+  let pontos = [];
+  let visivel = true;
+
+  const ajustarTamanho = () => {
+    const escala = Math.min(window.devicePixelRatio || 1, 2);
+    rede.width = rede.offsetWidth * escala;
+    rede.height = rede.offsetHeight * escala;
+    ctx.setTransform(escala, 0, 0, escala, 0, 0);
+    const total = Math.min(110, Math.round(rede.offsetWidth * rede.offsetHeight / 9000));
+    pontos = Array.from({ length: total }, () => ({
+      x: Math.random() * rede.offsetWidth,
+      y: Math.random() * rede.offsetHeight,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
+    }));
+  };
+
+  const desenhar = () => {
+    const w = rede.offsetWidth, h = rede.offsetHeight;
+    ctx.clearRect(0, 0, w, h);
+    for (let i = 0; i < pontos.length; i++) {
+      for (let j = i + 1; j < pontos.length; j++) {
+        const d = Math.hypot(pontos[i].x - pontos[j].x, pontos[i].y - pontos[j].y);
+        if (d < DISTANCIA) {
+          ctx.strokeStyle = `rgba(30, 144, 255, ${(1 - d / DISTANCIA) * 0.5})`;
+          ctx.beginPath();
+          ctx.moveTo(pontos[i].x, pontos[i].y);
+          ctx.lineTo(pontos[j].x, pontos[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    ctx.fillStyle = '#5cc8ff';
+    for (const p of pontos) {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 1.8, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  };
+
+  const animar = () => {
+    if (visivel) {
+      const w = rede.offsetWidth, h = rede.offsetHeight;
+      for (const p of pontos) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > w) p.vx *= -1;
+        if (p.y < 0 || p.y > h) p.vy *= -1;
+      }
+      desenhar();
+    }
+    requestAnimationFrame(animar);
+  };
+
+  ajustarTamanho();
+  new ResizeObserver(() => { ajustarTamanho(); desenhar(); }).observe(rede);
+  if (semAnimacao) {
+    desenhar();
+  } else {
+    // Pausa a animação quando o topo sai da tela, para poupar bateria
+    new IntersectionObserver(([e]) => { visivel = e.isIntersecting; }).observe(rede);
+    animar();
+  }
+}
+
 const ano = document.getElementById('ano');
 if (ano) ano.textContent = new Date().getFullYear();
