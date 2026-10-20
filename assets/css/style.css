@@ -58,7 +58,7 @@ img { max-width: 100%; height: auto; display: block; }
 .menu-btn { display: none; background: none; border: 0; color: #fff; font-size: 1.8rem; cursor: pointer; }
 .hero { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 3rem 0; }
 .hero-sub { color: var(--ciano); margin: 0 0 1rem; font-size: 1.1rem; }
-.hero h1 { color: var(--prata); font-size: clamp(2.2rem, 6vw, 3.8rem); margin: 0; }
+.hero h1 { color: var(--prata); font-size: clamp(1.8rem, 4vw, 2.8rem); margin: 0; max-width: 30ch; }
 
 /* Seções */
 .secao { padding: 70px 0; }
