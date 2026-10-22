@@ -91,6 +91,19 @@ img { max-width: 100%; height: auto; display: block; }
 .item { border: 1px solid var(--borda); border-top: 3px solid var(--azul); border-radius: 6px; padding: 1.5rem; text-align: center; }
 .item p { margin: 0; }
 
+/* CTO e CISO as a Service */
+.grade-2 { grid-template-columns: repeat(2, 1fr); }
+.lead { max-width: 60ch; margin: -.5rem auto 2.5rem; font-size: 1.05rem; opacity: .9; }
+.servico-destaque { background: var(--fundo); border: 1px solid var(--borda); border-top: 3px solid var(--azul); border-radius: 8px; padding: 2rem; }
+.servico-destaque h3 { font-size: 1.5rem; margin: .6rem 0 .5rem; }
+.servico-destaque > p { margin: 0 0 1.2rem; opacity: .9; }
+.selo { display: inline-block; font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--ciano); border: 1px solid var(--borda); border-radius: 999px; padding: .2rem .7rem; }
+.lista-check { list-style: none; padding: 0; margin: 0; }
+.lista-check li { position: relative; padding-left: 1.7rem; margin-bottom: .7rem; }
+.lista-check li::before { content: ""; position: absolute; left: 0; top: .3em; width: 1rem; height: 1rem; border-radius: 50%; background: var(--azul-escuro); }
+.lista-check li::after { content: ""; position: absolute; left: .34rem; top: .48em; width: .28rem; height: .5rem; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+.nota-servico { margin: 2rem auto 1.5rem; max-width: 60ch; font-size: .95rem; opacity: .8; }
+
 /* FAQ */
 details { border-bottom: 1px solid var(--borda); padding: 1rem 0; }
 summary { cursor: pointer; color: var(--ciano); font-family: Roboto, sans-serif; font-weight: 700; font-size: 1.1rem; }
@@ -159,7 +172,7 @@ details p { margin: .75rem 0 0; }
 .texto h2 { font-size: 1.4rem; margin: 2rem 0 .5rem; }
 
 @media (max-width: 860px) {
-  .grade-3, .sobre { grid-template-columns: 1fr; }
+  .grade-3, .grade-2, .sobre { grid-template-columns: 1fr; }
   .rodape-grade { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
   .rodape-marca { grid-column: 1 / -1; }
 }
