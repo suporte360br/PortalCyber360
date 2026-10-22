@@ -101,5 +101,19 @@ if (rede) {
   }
 }
 
+// Menu fixo: quando o topo sai da tela, o menu gruda no alto da página
+const nav = document.querySelector('.topo .nav');
+if (nav) {
+  const topo = nav.closest('.topo');
+  const atualizar = () => {
+    const fixo = window.scrollY > nav.offsetHeight + 40;
+    if (fixo && !nav.classList.contains('fixo')) topo.style.setProperty('--altura-nav', nav.offsetHeight + 'px');
+    nav.classList.toggle('fixo', fixo);
+    topo.classList.toggle('com-menu-fixo', fixo);
+  };
+  window.addEventListener('scroll', atualizar, { passive: true });
+  atualizar();
+}
+
 const ano = document.getElementById('ano');
 if (ano) ano.textContent = new Date().getFullYear();

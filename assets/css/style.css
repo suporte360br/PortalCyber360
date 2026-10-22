@@ -51,7 +51,6 @@ img { max-width: 100%; height: auto; display: block; }
 .marca img { width: 52px; height: 52px; border-radius: 8px; }
 .marca span { color: var(--prata); font-family: Roboto, sans-serif; font-weight: 700; font-size: 1.15rem; letter-spacing: .08em; }
 .marca b { color: var(--azul); }
-.logo-hero { width: min(420px, 80vw); border-radius: 12px; margin-bottom: 1.5rem; box-shadow: 0 0 40px rgba(30, 144, 255, .25); }
 .menu { list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; }
 .menu a { color: #fff; text-decoration: none; font-family: Roboto, sans-serif; font-weight: 700; font-size: 1.05rem; }
 .menu a:hover { color: var(--ciano); }
@@ -195,3 +194,35 @@ details p { margin: .75rem 0 0; }
 .botao-contorno { background: transparent; border: 2px solid var(--azul); color: var(--prata); padding: calc(.8rem - 2px) calc(1.6rem - 2px); }
 .botao-contorno:hover { background: var(--azul); color: #fff; }
 .cartao p + p { margin-top: 0; }
+
+/* Topo sem logo grande */
+.hero-texto { max-width: 62ch; margin: 1.2rem auto 0; font-size: 1.1rem; line-height: 1.7; color: var(--prata); opacity: .9; }
+
+/* Etapas numeradas (Anatel e Como funciona) */
+.etapas { list-style: none; counter-reset: etapa; padding: 0; margin: 0 0 2.5rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.etapas-anatel { grid-template-columns: repeat(5, 1fr); }
+.etapas li { counter-increment: etapa; position: relative; background: var(--fundo); border: 1px solid var(--borda); border-radius: 8px; padding: 1.5rem 1.3rem 1.3rem; }
+.secao:not(.secao-alt) .etapas li { background: var(--fundo-alt); }
+.etapas li::before { content: counter(etapa); display: grid; place-items: center; width: 2.4rem; height: 2.4rem; margin-bottom: .9rem; border-radius: 50%; background: var(--azul-escuro); color: #fff; font: 700 1.1rem Roboto, sans-serif; }
+.etapas h3 { font-size: 1.1rem; margin: 0 0 .4rem; }
+.etapas p { margin: 0; font-size: .95rem; opacity: .88; }
+
+/* Menu fixo ao rolar */
+section[id], header[id] { scroll-margin-top: 84px; }
+.nav.fixo { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: .55rem 0; background: rgba(7, 13, 24, .94); box-shadow: 0 0 0 100vmax rgba(7, 13, 24, .94), 0 1px 0 100vmax var(--borda); clip-path: inset(0 -100vmax -1px); backdrop-filter: blur(8px); }
+.nav.fixo .marca img { width: 40px; height: 40px; }
+.topo.com-menu-fixo { padding-top: var(--altura-nav, 84px); }
+.topo-simples { position: sticky; top: 0; z-index: 50; }
+
+@media (max-width: 1100px) {
+  .etapas-anatel { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 860px) {
+  .etapas, .etapas-anatel { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .etapas, .etapas-anatel { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .nav.fixo .menu { top: 62px; }
+}
