@@ -189,3 +189,9 @@ details p { margin: .75rem 0 0; }
   .formulario { grid-template-columns: 1fr; }
   .secao { padding: 40px 0; }
 }
+
+/* Botões do topo */
+.hero-acoes { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; margin-top: 2rem; }
+.botao-contorno { background: transparent; border: 2px solid var(--azul); color: var(--prata); padding: calc(.8rem - 2px) calc(1.6rem - 2px); }
+.botao-contorno:hover { background: var(--azul); color: #fff; }
+.cartao p + p { margin-top: 0; }
