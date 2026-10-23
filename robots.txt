@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /cultura/
 
 Sitemap: https://cybersec360.com.br/sitemap.xml

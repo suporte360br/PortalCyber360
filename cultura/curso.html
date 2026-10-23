@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Curso | Cultura Cybersec360</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0a1220">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="cultura.css">
+</head>
+<body data-pagina="curso">
+  <header class="topo-simples">
+    <nav class="nav container" aria-label="Área de Cultura">
+      <a href="painel.html" class="marca"><img src="../assets/img/logo-icone.png" alt="" width="44" height="44"><span>CYBERSEC<b>360</b></span><em class="area-nome">Cultura</em></a>
+      <div class="usuario"><span id="quem"></span><button class="botao botao-contorno botao-pequeno" type="button" data-sair>Sair</button></div>
+    </nav>
+  </header>
+  <main class="container estreito secao-cultura">
+    <p><a href="painel.html">&larr; Meus cursos</a></p>
+    <h1 id="titulo">Carregando…</h1>
+    <p id="descricao" class="sub"></p>
+    <p id="progresso" class="meta"></p>
+    <div id="modulos" class="modulos"></div>
+    <div class="fim-curso">
+      <a id="ir-quiz" class="botao" href="#" hidden>Fazer o quiz final</a>
+      <p id="quiz-bloqueado" class="meta">Conclua todos os módulos para liberar o quiz final.</p>
+    </div>
+  </main>
+  <footer class="rodape rodape-cultura">
+    <p class="copy">© <span id="ano">2026</span> cybersec360 · Área de Cultura em Segurança da Informação · <a href="/privacidade.html">Privacidade</a></p>
+  </footer>
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <script src="cultura.js"></script>
+  <script>document.getElementById('ano').textContent = new Date().getFullYear();</script>
+</body>
+</html>
