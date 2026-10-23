@@ -57,7 +57,7 @@ img { max-width: 100%; height: auto; display: block; }
 .menu-btn { display: none; background: none; border: 0; color: #fff; font-size: 1.8rem; cursor: pointer; }
 .hero { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 3rem 0; }
 .hero-sub { color: var(--ciano); margin: 0 0 1rem; font-size: 1.1rem; }
-.hero h1 { color: var(--prata); font-size: clamp(1.8rem, 4vw, 2.8rem); margin: 0; max-width: 30ch; }
+.hero h1 { color: var(--prata); font-size: clamp(1.8rem, 4vw, 2.8rem); margin: 0; max-width: 34ch; }
 
 /* Seções */
 .secao { padding: 70px 0; }
@@ -258,4 +258,27 @@ section[id], header[id] { scroll-margin-top: 84px; }
 @media (max-width: 560px) {
   .pilares { grid-template-columns: 1fr; }
   .painel { padding: 1.4rem; }
+}
+
+/* Quatro frentes */
+.grade-4 { grid-template-columns: repeat(4, 1fr); }
+.frente { display: flex; flex-direction: column; gap: .6rem; padding: 1.6rem; background: var(--fundo); border: 1px solid var(--borda); border-radius: 8px; color: var(--texto); text-decoration: none; transition: border-color .2s, transform .2s; }
+.secao:not(.secao-alt) .frente, .secao:not(.secao-alt) .painel { background: var(--fundo-alt); }
+.frente:hover { border-color: var(--azul); transform: translateY(-3px); }
+.frente svg { width: 40px; height: 40px; fill: none; stroke: var(--ciano); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.frente h3 { margin: .2rem 0 0; font-size: 1.15rem; }
+.frente p { margin: 0; flex: 1; font-size: .95rem; opacity: .88; }
+.frente-link { font: 700 .85rem Roboto, sans-serif; color: var(--ciano); }
+
+/* Avaliações de conformidade */
+.conformidade { align-items: start; margin-bottom: 2rem; }
+.conformidade h3 { font-size: 1.2rem; margin: 0 0 1rem; }
+.selos { list-style: none; padding: 0; margin: 0 0 1.2rem; display: flex; flex-wrap: wrap; gap: .5rem; }
+.selos li { border: 1px solid var(--azul); color: var(--prata); border-radius: 999px; padding: .35rem .9rem; font: 600 .9rem "Open Sans", sans-serif; }
+
+@media (max-width: 1100px) {
+  .grade-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .grade-4 { grid-template-columns: 1fr; }
 }
