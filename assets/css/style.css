@@ -282,3 +282,53 @@ section[id], header[id] { scroll-margin-top: 84px; }
 @media (max-width: 560px) {
   .grade-4 { grid-template-columns: 1fr; }
 }
+
+/* ===== CTO/CISO: visual modernizado ===== */
+.abas { display: flex; width: fit-content; max-width: 100%; margin: 0 auto 2rem; padding: .35rem; gap: .25rem; background: rgba(255, 255, 255, .04); border: 1px solid var(--borda); border-radius: 999px; }
+.aba { border: 0; border-radius: 999px; padding: .75rem 1.5rem; transition: background .25s, color .25s, box-shadow .25s; }
+.aba[aria-selected="true"] { background: linear-gradient(135deg, var(--azul), var(--azul-escuro)); box-shadow: 0 6px 20px rgba(30, 144, 255, .35); }
+.aba:not([aria-selected="true"]):hover { background: rgba(255, 255, 255, .06); }
+
+.painel { position: relative; padding: 2.5rem; border: 1px solid rgba(92, 200, 255, .18); border-radius: 18px; background: linear-gradient(160deg, rgba(30, 144, 255, .09), rgba(10, 18, 32, .2) 45%), var(--fundo); box-shadow: 0 20px 50px rgba(0, 0, 0, .35); overflow: clip; }
+.secao:not(.secao-alt) .painel { background: linear-gradient(160deg, rgba(30, 144, 255, .09), rgba(10, 18, 32, .2) 45%), var(--fundo-alt); }
+.painel::before { content: ""; position: absolute; top: -120px; right: -120px; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(92, 200, 255, .16), transparent 70%); pointer-events: none; }
+.js .painel:not([hidden]) { animation: surgir .35s ease; }
+@keyframes surgir { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .js .painel:not([hidden]) { animation: none; } }
+
+.painel-intro { max-width: 75ch; margin-bottom: 2.2rem; }
+.painel-intro h3 { font-size: clamp(1.6rem, 3vw, 2.1rem); margin: .7rem 0 .7rem; background: linear-gradient(90deg, #fff, var(--ciano)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.painel-intro p { font-size: 1.02rem; line-height: 1.75; }
+.destaques { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; margin: 1.2rem 0 0; }
+.destaques li { font-size: .85rem; color: var(--prata); padding: .35rem .85rem; border-radius: 999px; background: rgba(30, 144, 255, .12); border: 1px solid rgba(30, 144, 255, .3); }
+
+.painel-grade { grid-template-columns: 1.6fr 1fr; gap: 2rem; align-items: start; }
+.painel h4 { display: flex; align-items: center; gap: .6rem; }
+.painel h4::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--borda), transparent); }
+
+.pilares { counter-reset: pilar; gap: .8rem; }
+.pilares li { counter-increment: pilar; position: relative; border: 1px solid var(--borda); border-left: 1px solid var(--borda); border-radius: 12px; padding: 1rem 1rem 1rem 3.4rem; background: rgba(255, 255, 255, .025); transition: border-color .2s, transform .2s, background .2s; }
+.pilares li::before { content: counter(pilar, decimal-leading-zero); position: absolute; left: 1rem; top: 1rem; font: 700 .8rem/1.6 ui-monospace, "Cascadia Mono", Consolas, monospace; color: var(--ciano); letter-spacing: .05em; }
+.pilares li:hover { border-color: rgba(30, 144, 255, .6); background: rgba(30, 144, 255, .07); transform: translateY(-2px); }
+.pilares strong { margin-bottom: .2rem; }
+.pilares span { line-height: 1.5; }
+
+.painel-entregas { position: sticky; top: 96px; padding: 1.6rem; border-radius: 14px; background: linear-gradient(180deg, rgba(30, 144, 255, .14), rgba(30, 144, 255, .04)); border: 1px solid rgba(30, 144, 255, .35); }
+.painel-entregas .lista-check li { padding: .55rem 0 .55rem 1.8rem; margin: 0; border-bottom: 1px dashed rgba(255, 255, 255, .08); }
+.painel-entregas .lista-check li:last-child { border-bottom: 0; }
+.painel-entregas .lista-check li::before { top: .8em; }
+.painel-entregas .lista-check li::after { top: .98em; }
+.painel .aviso { margin-top: 1.2rem; padding: .9rem 1rem .9rem 2.6rem; position: relative; border: 1px solid rgba(92, 200, 255, .25); border-left-width: 1px; border-radius: 10px; background: rgba(7, 13, 24, .55); font-size: .85rem; line-height: 1.6; }
+.painel .aviso::before { content: "i"; position: absolute; left: .9rem; top: .95rem; width: 1.1rem; height: 1.1rem; border-radius: 50%; display: grid; place-items: center; font: 700 .75rem Georgia, serif; color: var(--fundo); background: var(--ciano); }
+
+@media (max-width: 860px) {
+  .painel { padding: 1.6rem; }
+  .painel-grade { grid-template-columns: 1fr; }
+  .painel-entregas { position: static; }
+}
+@media (max-width: 560px) {
+  .abas { width: 100%; }
+  .pilares { grid-template-columns: 1fr; }
+  .painel { padding: 1.2rem; border-radius: 14px; }
+  .aba { flex: 1; padding: .7rem .6rem; font-size: .9rem; }
+}
