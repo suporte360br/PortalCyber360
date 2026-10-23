@@ -226,3 +226,36 @@ section[id], header[id] { scroll-margin-top: 84px; }
 @media (max-width: 640px) {
   .nav.fixo .menu { top: 62px; }
 }
+
+/* Abas CTO / CISO */
+.abas { display: flex; justify-content: center; gap: .5rem; margin: 0 auto 1.5rem; flex-wrap: wrap; }
+.aba { font: 700 1rem Roboto, sans-serif; color: var(--prata); background: transparent; border: 1px solid var(--borda); border-radius: 999px; padding: .7rem 1.4rem; cursor: pointer; }
+.aba:hover { border-color: var(--azul); }
+.aba[aria-selected="true"] { background: var(--azul-escuro); border-color: var(--azul-escuro); color: #fff; }
+.aba:focus-visible { outline: 2px solid var(--ciano); outline-offset: 2px; }
+.painel { background: var(--fundo); border: 1px solid var(--borda); border-top: 3px solid var(--azul); border-radius: 8px; padding: 2rem; }
+.js .painel[hidden] { display: none; }
+.painel + .painel { margin-top: 1.5rem; }
+.painel-intro { max-width: 80ch; margin-bottom: 1.8rem; }
+.painel-intro h3 { font-size: 1.6rem; margin: .6rem 0 .6rem; }
+.painel-intro p { margin: 0; opacity: .9; }
+.painel-grade { display: grid; grid-template-columns: 1.25fr 1fr; gap: 2.5rem; }
+.painel h4 { font: 700 .85rem Roboto, sans-serif; text-transform: uppercase; letter-spacing: .1em; color: var(--ciano); margin: 0 0 1rem; }
+.pilares { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .9rem 1.5rem; }
+.pilares li { border-left: 2px solid var(--azul); padding-left: .8rem; }
+.pilares strong { display: block; color: var(--prata); font-family: Roboto, sans-serif; }
+.pilares span { font-size: .9rem; opacity: .8; }
+.aviso { margin: 1.5rem 0 0; padding: 1rem 1.1rem; font-size: .9rem; background: var(--fundo-alt); border-left: 3px solid var(--ciano); border-radius: 0 6px 6px 0; opacity: .95; }
+
+/* Implantação em 90 dias */
+.etapas-3 { grid-template-columns: repeat(3, 1fr); }
+.prazo { display: block; font: 700 .8rem Roboto, sans-serif; text-transform: uppercase; letter-spacing: .08em; color: var(--ciano); margin-bottom: .3rem; }
+
+@media (max-width: 860px) {
+  .painel-grade { grid-template-columns: 1fr; gap: 2rem; }
+  .etapas-3 { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .pilares { grid-template-columns: 1fr; }
+  .painel { padding: 1.4rem; }
+}

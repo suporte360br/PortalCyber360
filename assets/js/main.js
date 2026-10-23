@@ -115,5 +115,28 @@ if (nav) {
   atualizar();
 }
 
+// Abas CTO / CISO (sem JavaScript, os dois painéis aparecem um embaixo do outro)
+const abas = [...document.querySelectorAll('.aba')];
+if (abas.length) {
+  document.documentElement.classList.add('js');
+  const mostrar = (aba) => {
+    for (const a of abas) {
+      const ativa = a === aba;
+      a.setAttribute('aria-selected', ativa);
+      a.tabIndex = ativa ? 0 : -1;
+      document.getElementById(a.getAttribute('aria-controls')).hidden = !ativa;
+    }
+  };
+  abas.forEach((a, i) => {
+    a.addEventListener('click', () => mostrar(a));
+    a.addEventListener('keydown', (e) => {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      const prox = abas[(i + (e.key === 'ArrowRight' ? 1 : abas.length - 1)) % abas.length];
+      mostrar(prox); prox.focus();
+    });
+  });
+  mostrar(abas[0]);
+}
+
 const ano = document.getElementById('ano');
 if (ano) ano.textContent = new Date().getFullYear();
